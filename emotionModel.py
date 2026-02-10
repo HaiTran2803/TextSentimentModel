@@ -51,7 +51,7 @@ def tokenize(batch):
 dataset = Dataset.from_pandas(subset_selected_filtered)
 dataset = dataset.train_test_split(test_size=0.1)
 dataset = dataset.map(tokenize, batched=True)
-dataset.set_format(type="torch",columns=["input_ids", "attention_mask", "labels"])
+dataset.set_format(type="torch",columns=["text", "labels"])
 
 ####### train model
 training_args = TrainingArguments(
