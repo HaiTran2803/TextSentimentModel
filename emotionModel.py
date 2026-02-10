@@ -27,7 +27,6 @@ id2label = {
 le = LabelEncoder()
 for col in ['labels']:
     subset_selected_filtered[col] = le.fit_transform(subset_selected_filtered[col])
-# print(subset_selected_filtered)
 
 ###### preprocessing
 def preprocessing(text):
@@ -103,5 +102,4 @@ def predict_sentiment(text):
     return (label,id2label[label])
 
 print(predict_sentiment("Sản phẩm này rất tốt"))
-print(type)
 
