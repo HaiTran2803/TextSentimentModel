@@ -50,14 +50,14 @@ def tokenize(batch):
 dataset = Dataset.from_pandas(subset_selected_filtered)
 dataset = dataset.train_test_split(test_size=0.1)
 dataset = dataset.map(tokenize, batched=True)
-dataset.set_format(type="torch",columns=["text", "labels"])
+dataset.set_format(type="torch",columns=["input_ids","attention_mask", "labels"])
 
 ####### train model
 training_args = TrainingArguments(
     output_dir="./phobert_sentiment",
     eval_strategy="epoch",
     save_strategy="epoch",
-    learning_rate= 3e-5,
+    learning_rate= 2e-5,
     per_device_train_batch_size= 4,
     per_device_eval_batch_size= 4,
     gradient_accumulation_steps= 4,
